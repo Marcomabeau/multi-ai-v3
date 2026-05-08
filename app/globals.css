@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --card: #ffffff;
+    --card-border: #e5e7eb;
+    --text-primary: #111111;
+    --text-secondary: #4b5563;
+    --text-body: #6b7280;
+    --accent-start: #60a5fa;
+    --accent-end: #1d4ed8;
+  }
+
+  .dark {
+    --bg: #0b0b0c;
+    --card: #121214;
+    --card-border: #1f1f23;
+    --text-primary: #f5f5dc;
+    --text-secondary: #d1d5db;
+    --text-body: #9ca3af;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .brand-gradient {
+    background: linear-gradient(135deg, #60a5fa, #1d4ed8);
+  }
+
+  .brand-gradient-text {
+    background: linear-gradient(135deg, #60a5fa, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card {
+    @apply bg-white dark:bg-[#121214] border border-gray-200 dark:border-[#1f1f23] rounded-2xl;
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  }
+
+  .dark .card-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-white text-sm transition-all duration-200;
+    background: linear-gradient(135deg, #60a5fa, #1d4ed8);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm border border-gray-200 dark:border-[#2a2a2e] bg-white dark:bg-[#121214] text-gray-700 dark:text-gray-300 transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply border-gray-300 dark:border-[#3a3a3e];
+  }
+
+  .input-base {
+    @apply w-full rounded-2xl border border-gray-200 dark:border-[#2a2a2e] bg-white dark:bg-[#121214] px-4 py-3 text-base text-gray-900 dark:text-[#f5f5dc] placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-all duration-200;
+  }
+
+  .input-base:focus {
+    @apply border-blue-400 dark:border-blue-500;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-gray-100 dark:bg-[#1a1a1e] rounded-lg animate-pulse;
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+/* Focus visible outline */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
